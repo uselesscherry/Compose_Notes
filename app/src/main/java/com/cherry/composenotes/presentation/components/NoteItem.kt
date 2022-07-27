@@ -15,13 +15,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.cherry.composenotes.domain.Note
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NoteItem(
     modifier: Modifier = Modifier,
     note: Note
-
 ) {
     Card(
         modifier = modifier,
