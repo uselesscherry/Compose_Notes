@@ -12,7 +12,6 @@ import com.cherry.composenotes.presentation.screens.navigation.MainNavHost
 import com.cherry.composenotes.ui.theme.ComposeNotesTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
