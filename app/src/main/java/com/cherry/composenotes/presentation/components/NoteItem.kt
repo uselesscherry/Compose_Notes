@@ -21,17 +21,17 @@ import com.cherry.composenotes.domain.Note
 fun NoteItem(
     modifier: Modifier = Modifier,
     note: Note
-    // onClick:()->Unit
+
 ) {
     Card(
         modifier = modifier,
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.onTertiaryContainer),
         shape = RoundedCornerShape(
-            topStartPercent = 16,
+            topStartPercent = 12,
             topEndPercent = 4,
             bottomStartPercent = 4,
-            bottomEndPercent = 16
-        )//, onClick = onClick
+            bottomEndPercent = 12
+        )
     ) {
         Column(
             modifier = Modifier.padding(vertical = 8.dp, horizontal = 12.dp)

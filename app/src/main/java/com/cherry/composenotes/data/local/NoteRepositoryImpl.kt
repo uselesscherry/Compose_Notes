@@ -3,9 +3,8 @@ package com.cherry.composenotes.data.local
 import com.cherry.composenotes.domain.Note
 import com.cherry.composenotes.domain.NoteRepository
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
-class NoteRepositoryImpl @Inject constructor(
+class NoteRepositoryImpl (
     db: NoteDatabase
 ) : NoteRepository {
 

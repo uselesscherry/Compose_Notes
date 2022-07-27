@@ -3,10 +3,7 @@ package com.cherry.composenotes.presentation.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AddCircle
-import androidx.compose.material3.FilledTonalButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,6 +14,7 @@ import com.cherry.composenotes.presentation.NoteViewModel
 import com.cherry.composenotes.presentation.screens.navigation.Screen
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddEditNoteScreen(id: Int = -1, navController: NavHostController, viewModel: NoteViewModel) {
     val context = LocalContext.current
@@ -35,18 +33,31 @@ fun AddEditNoteScreen(id: Int = -1, navController: NavHostController, viewModel:
             content = note.content
         }
     }
-    Column(
+    Scaffold(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
+        floatingActionButton = {
+            FilledTonalButton(onClick = {
+                viewModel.insertNote(id, title, content, context) {
+                    navController.navigate(Screen.NoteList.route) {
+                        popUpTo(Screen.NoteList.route) {
+                            inclusive = true
+                        }
+                    }
+                }
+            }) {
+                Icon(imageVector = Icons.Rounded.AddCircle, contentDescription = "")
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(text = "add note")
+            }
+        }
     ) {
         Column(
             modifier = Modifier
-                .weight(9f)
-                .fillMaxWidth()
-                .fillMaxHeight()
+                .fillMaxSize()
+                .padding(horizontal = 12.dp, vertical = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
-            Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
                 modifier = Modifier
@@ -78,32 +89,6 @@ fun AddEditNoteScreen(id: Int = -1, navController: NavHostController, viewModel:
                     Text(text = "Your notes")
                 }
             )
-
-            Spacer(modifier = Modifier.height(16.dp))
-        }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(0.75f)
-                .fillMaxHeight(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
-        ) {
-            Spacer(modifier = Modifier.width(0.dp))
-
-            FilledTonalButton(onClick = {
-                viewModel.insertNote(id, title, content, context) {
-                    navController.navigate(Screen.NoteList.route) {
-                        popUpTo(Screen.NoteList.route) {
-                            inclusive = true
-                        }
-                    }
-                }
-            }) {
-                Icon(imageVector = Icons.Rounded.AddCircle, contentDescription = "")
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(text = "add note")
-            }
         }
     }
 }
