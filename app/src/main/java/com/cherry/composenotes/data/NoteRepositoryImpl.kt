@@ -1,5 +1,6 @@
-package com.cherry.composenotes.data.local
+package com.cherry.composenotes.data
 
+import com.cherry.composenotes.data.local.NoteDatabase
 import com.cherry.composenotes.domain.Note
 import com.cherry.composenotes.domain.NoteRepository
 import kotlinx.coroutines.flow.Flow

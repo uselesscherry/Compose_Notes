@@ -7,10 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Delete
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -21,7 +18,7 @@ import androidx.compose.ui.window.Dialog
 
 
 @Composable
-fun CustomDialog(onDeleteConfirm:()->Unit,onDeleteDismiss:()->Unit) {
+fun CustomDialog(onDeleteConfirm: () -> Unit, onDeleteDismiss: () -> Unit) {
     Dialog(onDismissRequest = onDeleteDismiss) {
         CustomDialogUI(onDeleteConfirm = onDeleteConfirm, onDeleteDismiss = onDeleteDismiss)
     }
@@ -30,10 +27,10 @@ fun CustomDialog(onDeleteConfirm:()->Unit,onDeleteDismiss:()->Unit) {
 //Layout
 @Composable
 fun CustomDialogUI(
-    titleText:String = "Delete note?",
-    messageText:String = "Are you sure you want to delete note? There will be no way to restore it.",
-    onDeleteConfirm:()->Unit,
-    onDeleteDismiss:()->Unit
+    titleText: String = "Delete note?",
+    messageText: String = "Are you sure you want to delete note? There will be no way to restore it.",
+    onDeleteConfirm: () -> Unit,
+    onDeleteDismiss: () -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(
@@ -45,7 +42,6 @@ fun CustomDialogUI(
     ) {
 
         Column {
-            //.......................................................................
             Icon(
                 imageVector = Icons.Rounded.Delete,
                 contentDescription = null,
@@ -58,7 +54,7 @@ fun CustomDialogUI(
                 )
 
             Column(modifier = Modifier.padding(16.dp)) {
-                androidx.compose.material3.Text(
+                Text(
                     text = titleText,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
@@ -68,7 +64,7 @@ fun CustomDialogUI(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
-                androidx.compose.material3.Text(
+                Text(
                     text = messageText,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
@@ -77,7 +73,7 @@ fun CustomDialogUI(
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
-            //.......................................................................
+
             Row(
                 Modifier
                     .fillMaxWidth()
@@ -86,19 +82,19 @@ fun CustomDialogUI(
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
 
-                androidx.compose.material3.TextButton(onClick = onDeleteDismiss) {
+                TextButton(onClick = onDeleteDismiss) {
 
-                    androidx.compose.material3.Text(
-                        "Not Now",
+                    Text(
+                        "Cancel",
                         style = MaterialTheme.typography.labelLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier.padding(top = 5.dp, bottom = 5.dp)
                     )
                 }
-                androidx.compose.material3.TextButton(onClick = onDeleteConfirm) {
-                    androidx.compose.material3.Text(
-                        "Allow",
+                TextButton(onClick = onDeleteConfirm) {
+                    Text(
+                        "Delete",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.W900,
                         color = MaterialTheme.colorScheme.primary,

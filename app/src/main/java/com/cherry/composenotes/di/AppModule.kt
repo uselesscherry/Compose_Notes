@@ -1,8 +1,8 @@
 package com.cherry.composenotes.di
 
 import androidx.room.Room
+import com.cherry.composenotes.data.NoteRepositoryImpl
 import com.cherry.composenotes.data.local.NoteDatabase
-import com.cherry.composenotes.data.local.NoteRepositoryImpl
 import com.cherry.composenotes.domain.NoteRepository
 import com.cherry.composenotes.presentation.NoteViewModel
 import org.koin.android.ext.koin.androidContext
