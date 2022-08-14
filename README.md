@@ -2,13 +2,15 @@
 
 This app helps you to save your thoughts using **Room**. The goal of this app is to
 showcase inserting data loading it from Room DB, implementing **DI**, using *LazyColumn* and **Compose Navigation** and async programming with *Coroutines* and *Flow*.
-Also implemented `Custom Dialog` with custom layout
+Also implemented a `CustomDialog` with custom layout.
 
 **[`XML Version`](https://github.com/uselesscherry/Notato) of This app with RecyclerView, Jetpack Navigation Component, Custom Exception and Custom Dialog**
 
+<img src="screenshots/composeNotes.png"/>
+
 ### What I used in this project:
 
-- **Jetpack Compose** with [`Compose Navigation`](app/src/main/java/com/cherry/composenotes/presentation/screens/navigation
+- **Jetpack Compose** with [`Compose Navigation`](app/src/main/java/com/cherry/composenotes/presentation/screens/navigation)
 - [`Koin and Hilt DI`](app/src/main/java/com/cherry/composenotes/di)
 - [`Room`](app/src/main/java/com/cherry/composenotes/data/local)
 - `Coroutines` and `Flow`
